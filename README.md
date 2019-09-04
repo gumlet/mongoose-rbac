@@ -1,7 +1,7 @@
 # mongoose-role
 
 [![NPM version](http://img.shields.io/npm/v/mongoose-role.svg?style=flat)](https://www.npmjs.org/package/mongoose-role)
-[![Build Status](http://img.shields.io/travis/ksmithut/mongoose-role.svg?style=flat)](https://travis-ci.org/ksmithut/mongoose-role)
+[![Build Status](https://travis-ci.org/gumlet/mongoose-rbac.svg?branch=master)](https://travis-ci.org/gumlet/mongoose-rbac)
 
 A mongoose plugin to help manage user roles and user access levels.
 

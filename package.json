@@ -2,13 +2,9 @@
   "name": "mongoose-rbac",
   "version": "1.0.0",
   "description": "Adds a role and access level functionality to a model",
-  "main": "index.js",
+  "main": "src/index.js",
   "scripts": {
-    "pretest": "npm run lint",
-    "test": "istanbul cover _mocha",
-    "posttest": "istanbul check-coverage --statements 100 --lines 100 --branches 100 --functions 100",
-    "lint": "standard",
-    "codeclimate": "cat ./coverage/lcov.info | codeclimate-test-reporter"
+    "test": "jest"
   },
   "repository": {
     "type": "git",
@@ -20,6 +16,9 @@
     "rbac",
     "account",
     "acl"
+  ],
+  "files": [
+    "src"
   ],
   "author": "Gumlet",
   "license": "MIT",
@@ -34,12 +33,7 @@
     ]
   },
   "devDependencies": {
-    "chai": "^4.2.0",
-    "codeclimate-test-reporter": "^0.5.1",
-    "istanbul": "^0.4.5",
-    "mocha": "^6.2.0",
-    "mocha-lcov-reporter": "^1.3.0",
     "mongoose": "^5.6.11",
-    "standard": "^14.0.2"
+    "jest": "^24.9.0"
   }
 }
