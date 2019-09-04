@@ -1,5 +1,5 @@
 {
-  "name": "mongoose-rbac",
+  "name": "mongoose-rbac-plugin",
   "version": "1.0.0",
   "description": "Adds a role and access level functionality to a model",
   "main": "src/index.js",
@@ -8,7 +8,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/gumlet/mongoose-rbac.git"
+    "url": "https://github.com/gumlet/mongoose-rbac-plugin.git"
   },
   "keywords": [
     "mongoose",
@@ -23,9 +23,9 @@
   "author": "Gumlet",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/gumlet/mongoose-rbac/issues"
+    "url": "https://github.com/gumlet/mongoose-rbac-plugin/issues"
   },
-  "homepage": "https://github.com/gumlet/mongoose-rbac",
+  "homepage": "https://github.com/gumlet/mongoose-rbac-plugin",
   "eslintConfig": {
     "root": true,
     "extends": [

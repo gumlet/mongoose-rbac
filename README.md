@@ -1,6 +1,6 @@
-# mongoose-role
+# mongoose-rbac-plugin
 
-[![NPM version](http://img.shields.io/npm/v/mongoose-role.svg?style=flat)](https://www.npmjs.org/package/mongoose-role)
+[![npm version](https://badge.fury.io/js/mongoose-rbac-plugin.svg)](https://badge.fury.io/js/mongoose-rbac-plugin)
 [![Build Status](https://travis-ci.org/gumlet/mongoose-rbac.svg?branch=master)](https://travis-ci.org/gumlet/mongoose-rbac)
 
 A mongoose plugin to help manage user roles and user access levels.
@@ -23,7 +23,7 @@ requests.
 ## Installation
 
 ```bash
-npm install --save mongoose-rbac
+npm install --save mongoose-rbac-plugin
 ```
 
 ## Usage
@@ -35,7 +35,7 @@ var UserSchema = new require('mongoose').Schema({
   email: String
 })
 
-UserSchema.plugin(require('mongoose-role'), {
+UserSchema.plugin(require('mongoose-rbac-plugin'), {
   roles: ['public', 'user', 'admin'],
   accessLevels: {
     public: ['public', 'user', 'admin'],
