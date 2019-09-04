@@ -1,19 +1,9 @@
 # mongoose-role
 
 [![NPM version](http://img.shields.io/npm/v/mongoose-role.svg?style=flat)](https://www.npmjs.org/package/mongoose-role)
-[![Dependency Status](http://img.shields.io/david/ksmithut/mongoose-role.svg?style=flat)](https://gemnasium.com/ksmithut/mongoose-role)
-[![Dependency Status](http://img.shields.io/david/dev/ksmithut/mongoose-role.svg?style=flat)](https://gemnasium.com/ksmithut/mongoose-role)
-[![Code Climate](http://img.shields.io/codeclimate/github/ksmithut/mongoose-role.svg?style=flat)](https://codeclimate.com/github/ksmithut/mongoose-role)
 [![Build Status](http://img.shields.io/travis/ksmithut/mongoose-role.svg?style=flat)](https://travis-ci.org/ksmithut/mongoose-role)
-[![Coverage Status](http://img.shields.io/codeclimate/coverage/github/ksmithut/mongoose-role.svg?style=flat)](https://codeclimate.com/github/ksmithut/mongoose-role)
 
 A mongoose plugin to help manage user roles and user access levels.
-
-**Looking for another maintainer. I have been cleaning up my packages and no
-longer have the energy to maintain this package. If you are interested in
-taking over, please reach out. Otherwise, eventually I will have this package
-removed. I doubt this module is used enough for people to read this, but in
-case it is read, there's your notice.**
 
 There are many ways to handle user account access levels. This one has a very
 specific methodology.
@@ -33,7 +23,7 @@ requests.
 ## Installation
 
 ```bash
-npm install --save mongoose-role
+npm install --save mongoose-rbac
 ```
 
 ## Usage
@@ -129,15 +119,3 @@ string is passed that isn't one of the access levels, it will return false.
   given in the options. Default: `'accessLevels'`
 - `hasAccessMethod` (String) - The instance method name to be used to check a
   user's access level. Default: `'hasAccess'`
-
-# Changelog
-
-## 3.0.0
-
-Updates dependencies, removes support for node '4' (because peerDependencies
-dropped support).
-
-## 2.0.0
-
-`hasAccess()` when no access levels are passed in returns `false` instead of
-`true`.
