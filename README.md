@@ -1,7 +1,7 @@
 # mongoose-rbac-plugin
 
 [![npm version](https://badge.fury.io/js/mongoose-rbac-plugin.svg)](https://badge.fury.io/js/mongoose-rbac-plugin)
-[![Build Status](https://travis-ci.org/gumlet/mongoose-rbac.svg?branch=master)](https://travis-ci.org/gumlet/mongoose-rbac)
+[![Build Status](https://travis-ci.org/gumlet/mongoose-rbac-plugin.svg?branch=master)](https://travis-ci.org/gumlet/mongoose-rbac-plugin)
 
 A mongoose plugin to help manage user roles and user access levels.
 
