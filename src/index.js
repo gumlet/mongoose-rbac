@@ -17,9 +17,8 @@ module.exports = function role (schema, options) {
 
   // Set the role path
   schema
-    .path(options.rolePath, String)
+    .path(options.rolePath, [])
     .path(options.rolePath)
-    .enum({ values: options.roles })
     .required(true)
 
   // Expose the roles
@@ -28,24 +27,27 @@ module.exports = function role (schema, options) {
 
   // Set the hasAccess method
   schema.method(options.hasAccessMethod, function (accessLevels) {
-    var userRole = this.get(options.rolePath)
-    return roleHasAccess(userRole, accessLevels)
+    var userRoles = this.get(options.rolePath)
+    return roleHasAccess(userRoles, accessLevels)
   })
 
   // Set the roleHasAccess method
   schema.static(options.roleHasAccessMethod, roleHasAccess)
 
-  function roleHasAccess (role, accessLevels) {
+  function roleHasAccess (roles, accessLevels) {
     if (typeof accessLevels === 'undefined') {
       return false
     }
     accessLevels = [].concat(accessLevels)
-
     // Goes through all access levels, and if any one of the access levels
     // doesn't exist in the roles, return false
     return !accessLevels.some(level => {
-      var roles = options.accessLevels[level] || []
-      return roles.indexOf(role) === -1
+      var accesses = options.accessLevels[level] || []
+      var intersection = roles.filter(value => accesses.includes(value))
+      if(intersection.length==0)
+        return true;
+      return false;
+
     })
   }
 }
