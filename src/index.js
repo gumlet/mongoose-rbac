@@ -6,11 +6,14 @@ module.exports = function role (schema, options) {
     {
       roles: [],
       accessLevels: {},
+      maxLevel: Number,
       rolePath: 'role',
       rolesStaticPath: 'roles',
       accessLevelsStaticPath: 'accessLevels',
+      maxLevelPath: 'maxLevel',
       hasAccessMethod: 'hasAccess',
-      roleHasAccessMethod: 'roleHasAccess'
+      roleHasAccessMethod: 'roleHasAccess',
+      hasAccessOnRoute: 'hasAccessOnRoute'
     },
     options
   )
@@ -24,6 +27,7 @@ module.exports = function role (schema, options) {
   // Expose the roles
   schema.static(options.rolesStaticPath, options.roles)
   schema.static(options.accessLevelsStaticPath, options.accessLevels)
+  schema.static(options.maxLevelPath, options.maxLevel)
 
   // Set the hasAccess method
   schema.method(options.hasAccessMethod, function (accessLevels) {
@@ -50,4 +54,21 @@ module.exports = function role (schema, options) {
 
     })
   }
+
+  schema.method(options.hasAccessOnRoute, function (routes) {
+    let userRoles = this.get(options.rolePath)
+    let maxLevel = options.maxLevel
+    return hasAccessOnRoute(userRoles, routes, maxLevel)
+  })
+
+
+  function hasAccessOnRoute (userRoles,route, maxLevel) {
+    let levels = route.split('/');
+    if(levels.length<1){
+      return false;
+    }
+    return roleHasAccess(userRoles,levels.slice(1,maxLevel+1));
+
+  }
+
 }
