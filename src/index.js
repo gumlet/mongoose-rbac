@@ -55,10 +55,16 @@ module.exports = function role (schema, options) {
     })
   }
 
-  schema.method(options.hasAccessOnRoute, function (routes) {
+  schema.method(options.hasAccessOnRoute, function (req,res,next) {
     let userRoles = this.get(options.rolePath)
     let maxLevel = options.maxLevel
-    return hasAccessOnRoute(userRoles, routes, maxLevel)
+    if(hasAccessOnRoute(userRoles,req['originalUrl'],maxLevel)){
+      next()
+    }
+    else{
+      res.set("Cache-Control", "private, max-age=0");
+      res.status(403).send("Access Denied.");
+    }
   })
 
 
