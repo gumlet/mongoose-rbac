@@ -58,7 +58,7 @@ module.exports = function role (schema, options) {
   schema.method(options.hasAccessOnRoute, function (req,res,next) {
     let userRoles = this.get(options.rolePath)
     let maxLevel = options.maxLevel
-    if(hasAccessOnRoute(userRoles,req['originalUrl'],maxLevel)){
+    if(hasAccessOnRoute(userRoles,req['_parsedOriginalUrl']['pathname'],maxLevel)){
       next()
     }
     else{
