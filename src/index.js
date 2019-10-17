@@ -7,7 +7,7 @@ module.exports = function role (schema, options) {
       roles: [],
       accessLevels: {},
       maxLevel: Number,
-      rolePath: 'role',
+      rolePath: 'roles',
       rolesStaticPath: 'roles',
       accessLevelsStaticPath: 'accessLevels',
       maxLevelPath: 'maxLevel',

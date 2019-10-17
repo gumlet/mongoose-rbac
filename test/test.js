@@ -34,11 +34,11 @@ test('should give accurate user account lockage', () => {
   var Test = mongoose.model('Test1', TestSchema)
   var model1 = new Test({
     name: 'test1',
-    role: 'user'
+    roles: ['user']
   })
   var model2 = new Test({
     name: 'test2',
-    role: 'admin'
+    roles: ['admin']
   })
   expect(model1.hasAccess('user')).toBe(true)
   expect(model1.hasAccess('admin')).toBe(false)
@@ -54,11 +54,11 @@ test("should not break completely if options aren't passed", function(done) {
   var Test = mongoose.model('Test2', TestSchema)
   var model1 = new Test({
     name: 'test1',
-    role: 'user'
+    roles: ['user']
   })
   var model2 = new Test({
     name: 'test2',
-    role: 'admin'
+    roles: ['admin']
   })
   expect(model1.hasAccess('user')).toBe(false)
   expect(model1.hasAccess('admin')).toBe(false)
@@ -87,15 +87,15 @@ test('should work with an array of access levels', function() {
   var Test = mongoose.model('Test3', TestSchema)
   var model1 = new Test({
     name: 'test1',
-    role: 'anon'
+    roles: ['anon']
   })
   var model2 = new Test({
     name: 'test2',
-    role: 'user'
+    roles: ['user']
   })
   var model3 = new Test({
     name: 'test3',
-    role: 'admin'
+    roles: ['admin']
   })
   expect(model1.hasAccess()).toBe(false)
   expect(model1.hasAccess('public')).toBe(true)
@@ -118,7 +118,7 @@ test('should work with multiple roles',function(){
   var Test = mongoose.model('Test4', TestSchema)
   var model1 = new Test({
     name: 'test1',
-    role: ['user','public']
+    roles: ['user','public']
   })
   expect(model1.hasAccess(['public', 'user'])).toBe(true)
 });
