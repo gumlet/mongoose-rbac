@@ -18,11 +18,14 @@ module.exports = function role (schema, options) {
     options
   )
 
-  // Set the role path
-  schema
-    .path(options.rolePath, [])
-    .path(options.rolePath)
-    .required(true)
+  // Set the role path when not provided
+  if(!schema.path(options.rolePath)){
+    schema
+      .path(options.rolePath, [])
+      .path(options.rolePath)
+      .required(true)
+  }
+
 
   // Expose the roles
   schema.static(options.rolesStaticPath, options.roles)
